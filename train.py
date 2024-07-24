@@ -9,7 +9,7 @@ import datetime
 from data import get_loader
 def save_model(model):
     current_time = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    model_path = f'./model/{current_time}.pth'
+    model_path = f'./model/rnn/{current_time}.pth'
     torch.save(model.state_dict(), model_path)
 
 class RNN(nn.Module):

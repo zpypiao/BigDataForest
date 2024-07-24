@@ -6,7 +6,7 @@ from data import get_loader
 
 def load_last_model():
     # 读取最后一个模型
-    path = './model'
+    path = './model/rnn'
     files = os.listdir(path)
     files.sort(key=lambda x: os.path.getmtime(path + '/' + x))
     model = RNN(4)
@@ -29,7 +29,7 @@ outputs, _ = model(inputs, None)
 outputs = outputs.detach().numpy().squeeze()
 
 # 画图
-plt.plot(targets[:100], label='true')
-plt.plot(outputs[:100], label='forecast')
+plt.plot(targets[:200], label='true')
+plt.plot(outputs[:200], label='forecast')
 plt.legend()
 plt.show()
