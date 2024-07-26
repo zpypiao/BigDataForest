@@ -24,7 +24,7 @@ def read_test_data():
     df = data[factors]
     df['itime'] = pd.to_datetime(df['itime'])
     df['itime'] = df['itime'].dt.hour * 3600 + df['itime'].dt.minute * 60 + df['itime'].dt.second
-    return data, sc
+    return df.values
 
 
 # 读取数据

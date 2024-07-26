@@ -91,6 +91,18 @@ def get_loader(batch_size):
     )
     return train_loader, test_dataset
 
+
+def get_test_data(path='./数据/test.csv', mean_std_path='./params/mean_std.pkl', trans=True):
+    data = pd.read_csv(path)
+    data = data.values
+    with open(mean_std_path, 'rb') as f:
+        my_dict = pickle.load(f)
+    mean = my_dict['mean']
+    std = my_dict['std']
+    if trans:
+        data = (data - mean)/std
+    return data
+
 if __name__ == '__main__':
     loader, test = get_loader(100)
     inputs = [data for data, _ in test]

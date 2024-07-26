@@ -97,7 +97,7 @@ if __name__ == '__main__':
 
     plt.ioff()
     plt.show()
-
+    print(zzz)
     save_model(model)
     # 测试模型
     model.eval()
